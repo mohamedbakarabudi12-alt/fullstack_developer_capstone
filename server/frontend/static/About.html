@@ -1,68 +1,65 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Best Cars</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+<body class="about-page">
+  <nav class="navbar navbar-expand-lg navbar-light about-navbar">
+    <div class="container-fluid about-nav-inner">
+      <a class="navbar-brand" href="/">Best Cars</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/about/">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact/">Contact Us</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
+  <main class="about-main">
+    <section class="about-hero" name="about-header">
+      <p class="about-eyebrow">A better way to find your next car</p>
+      <h1>About Best Cars</h1>
+      <p class="about-intro">We help drivers find the right car with clear advice, carefully selected vehicles, and friendly support from the first visit to the final handshake.</p>
+    </section>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
+    <section class="about-story" aria-labelledby="our-story-title">
+      <div class="about-story-copy">
+        <p class="about-eyebrow">People first. Cars second.</p>
+        <h2 id="our-story-title">A dealership built around your needs</h2>
+        <p>Choosing a car is a big decision. Our team takes time to understand how you drive, what matters to you, and what fits your budget. We make it easy to compare domestic and imported models and get straightforward answers along the way.</p>
+        <p>From your first questions to the day you drive away, we want every step to feel informed, comfortable, and personal.</p>
       </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
+      <img class="about-team-image" src="/static/dealership-team.png" alt="The Best Cars team welcoming customers in the showroom">
+    </section>
 
+    <section class="about-values" aria-labelledby="our-approach-title">
+      <h2 id="our-approach-title">What you can expect</h2>
+      <div class="about-value-grid">
+        <article class="about-value-card">
+          <h3>Clear guidance</h3>
+          <p>Practical answers and useful comparisons to help you choose with confidence.</p>
+        </article>
+        <article class="about-value-card">
+          <h3>Thoughtful selection</h3>
+          <p>A range of domestic and imported vehicles for different needs and budgets.</p>
+        </article>
+        <article class="about-value-card">
+          <h3>Personal service</h3>
+          <p>A friendly team ready to listen, explain your options, and help at every step.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="about-footer">Best Cars · Here to help you find your next drive.</footer>
+</body>
 </html>
