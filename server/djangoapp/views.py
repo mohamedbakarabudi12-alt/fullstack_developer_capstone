@@ -132,6 +132,13 @@ def get_car_models(request):
         return _api_error(error)
 
 
+def analyze_review(request, review_text):
+    if request.method != 'GET':
+        return JsonResponse({'error': 'Use GET to analyze review sentiment.'}, status=405)
+    sentiment = restapis.analyze_review_sentiments(review_text)
+    return JsonResponse({'status': 200, 'sentiment': sentiment})
+
+
 @csrf_exempt
 def add_review(request):
     if request.method != 'POST':
