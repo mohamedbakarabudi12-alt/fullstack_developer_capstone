@@ -58,7 +58,7 @@ const Register = () => {
           <label htmlFor="register-password">Password</label>
           <input id="register-password" name="password" type="password" autoComplete="new-password" required value={form.password} onChange={updateField} />
           {error && <p className="auth-error" role="alert">{error}</p>}
-          <button className="auth-button" type="submit">Create account</button>
+          <button className="auth-button" type="submit">Register</button>
           <p className="auth-switch">Already have an account? <Link to="/login/">Sign in</Link></p>
         </form>
       </main>
