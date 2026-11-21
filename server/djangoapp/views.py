@@ -43,7 +43,7 @@ def logout_user(request):
         return JsonResponse({'error': 'Use POST to sign out.'}, status=405)
 
     logout(request)
-    return JsonResponse({'status': 'Logged out'})
+    return JsonResponse({'userName': '', 'status': 'Logged out'})
 
 
 @csrf_exempt
