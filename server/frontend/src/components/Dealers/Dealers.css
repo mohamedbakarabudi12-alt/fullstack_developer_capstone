@@ -86,3 +86,177 @@ table{
   transform: scale(1.1);
   border: solid lightgray;
 }
+
+.dealers-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+  color: #29394d;
+}
+
+.dealers-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 24px 0 32px;
+}
+
+.dealers-heading h1,
+.dealers-page h1 {
+  margin: 0 0 10px;
+  color: #142b4a;
+}
+
+.dealers-heading p,
+.dealer-card p {
+  color: #59697c;
+}
+
+.state-filter,
+.review-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #29394d;
+  font-weight: 600;
+}
+
+.state-filter select,
+.review-form input,
+.review-form select,
+.review-form textarea {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  color: #17212f;
+  font: inherit;
+}
+
+.dealers-grid,
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.dealer-card,
+.customer-review {
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 28px rgba(25, 48, 75, .06);
+}
+
+.dealer-card h2 {
+  margin: 8px 0 12px;
+  font-size: 1.2rem;
+}
+
+.dealer-card h2 a,
+.dealer-card-actions a,
+.back-link {
+  color: #1769aa;
+  text-decoration: none;
+}
+
+.dealer-location {
+  margin: 0;
+  color: #1769aa !important;
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dealer-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-title {
+  margin: 36px 0 18px;
+  color: #142b4a;
+}
+
+.customer-review {
+  position: relative;
+  min-height: 160px;
+}
+
+.customer-review .emotion_icon {
+  position: static;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.review-copy {
+  line-height: 1.6;
+}
+
+.customer-review .reviewer {
+  margin: 18px 0 0;
+}
+
+.review-form {
+  display: flex;
+  max-width: 680px;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.review-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+.home-button:hover {
+  color: white;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
+@media (max-width: 620px) {
+  .dealers-page {
+    padding: 32px 16px 56px;
+  }
+
+  .dealers-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .review-form-row {
+    grid-template-columns: 1fr;
+  }
+}

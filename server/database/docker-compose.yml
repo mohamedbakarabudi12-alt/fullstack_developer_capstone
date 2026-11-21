@@ -8,16 +8,22 @@ services:
     ports:
       - 27017:27017
     restart: always
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     volumes:
       - mongo_data:/data/db
 
   # Node api service
   api:
-    image: nodeapp
+    build: .
     ports:
       - 3030:3030
-    depends_on: 
-      - mongo_db
+    depends_on:
+      mongo_db:
+        condition: service_healthy
 
 volumes:
   mongo_data: {}

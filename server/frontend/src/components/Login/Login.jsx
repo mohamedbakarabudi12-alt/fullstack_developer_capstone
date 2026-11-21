@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import "./Login.css";
 import Header from '../Header/Header';
 
-const Login = ({ onClose }) => {
+const Login = () => {
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [open,setOpen] = useState(true)
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
 
-  let login_url = window.location.origin+"/djangoapp/login";
+  const loginUrl = "/djangoapp/login";
 
   const login = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(login_url, {
+    setError("");
+    try {
+      const res = await fetch(loginUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,50 +27,35 @@ const Login = ({ onClose }) => {
             "userName": userName,
             "password": password
         }),
-    });
-    
-    const json = await res.json();
-    if (json.status != null && json.status === "Authenticated") {
+      });
+      const json = await res.json();
+      if (res.ok && json.status === "Authenticated") {
         sessionStorage.setItem('username', json.userName);
-        setOpen(false);        
-    }
-    else {
-      alert("The user could not be authenticated.")
+        navigate('/');
+      } else {
+        setError(json.error || "The user could not be authenticated.");
+      }
+    } catch (requestError) {
+      setError("Could not reach the server. Make sure Django is running.");
     }
 };
-
-  if (!open) {
-    window.location.href = "/";
-  };
-  
 
   return (
     <div>
       <Header/>
-    <div onClick={onClose}>
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className='modalContainer'
-      >
-          <form className="login_panel" style={{}} onSubmit={login}>
-              <div>
-              <span className="input_field">Username </span>
-              <input type="text"  name="username" placeholder="Username" className="input_field" onChange={(e) => setUserName(e.target.value)}/>
-              </div>
-              <div>
-              <span className="input_field">Password </span>
-              <input name="psw" type="password"  placeholder="Password" className="input_field" onChange={(e) => setPassword(e.target.value)}/>            
-              </div>
-              <div>
-              <input className="action_button" type="submit" value="Login"/>
-              <input className="action_button" type="button" value="Cancel" onClick={()=>setOpen(false)}/>
-              </div>
-              <a className="loginlink" href="/register">Register Now</a>
-          </form>
-      </div>
-    </div>
+      <main className="auth-page">
+        <form className="auth-card" onSubmit={login}>
+          <p className="auth-eyebrow">Welcome back</p>
+          <h1>Sign in</h1>
+          <label htmlFor="login-username">Username</label>
+          <input id="login-username" type="text" autoComplete="username" required value={userName} onChange={(e) => setUserName(e.target.value)} />
+          <label htmlFor="login-password">Password</label>
+          <input id="login-password" type="password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+          {error && <p className="auth-error" role="alert">{error}</p>}
+          <button className="auth-button" type="submit">Sign in</button>
+          <p className="auth-switch">New to Best Cars? <Link to="/register/">Create an account</Link></p>
+        </form>
+      </main>
     </div>
   );
 };

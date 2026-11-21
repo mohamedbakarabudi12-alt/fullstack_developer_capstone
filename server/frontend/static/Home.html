@@ -7,7 +7,15 @@
 <script>
 
 const logout = async (e) => {
-//Include the code for logout here.
+  e.preventDefault();
+  try {
+    const response = await fetch('/djangoapp/logout', { method: 'POST' });
+    if (!response.ok) throw new Error('Sign out failed');
+    sessionStorage.removeItem('username');
+    window.location.reload();
+  } catch (error) {
+    alert('Could not sign out. Please try again.');
+  }
 };
 
 let checkSession = ()=>{
@@ -16,11 +24,11 @@ let checkSession = ()=>{
   if (curr_user && curr_user !== "") {
     document.getElementById("loginlogout").innerHTML = 
     '<span class="homepage_links">' + curr_user +'</span>' +
-    '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+    '<a class="homepage_links" onclick="logout(event)" href="/">Logout</a>'
   } else {
     document.getElementById("loginlogout").innerHTML = 
-    '<a class="homepage_links" href="/login">Login</a>'+
-    '<a class="homepage_links"  href="/register">Register</a>'
+    '<a class="homepage_links" href="/login/">Login</a>'+
+    '<a class="homepage_links"  href="/register/">Register</a>'
   }
  }
 </script>
