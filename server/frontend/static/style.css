@@ -239,6 +239,87 @@ img{
   text-align: center;
 }
 
+.about-team {
+  padding-top: 62px;
+}
+
+.about-team-heading {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-team-heading h2 {
+  margin: 0 0 12px;
+  color: #142b4a;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.about-team-heading > p:last-child,
+.about-person-card > p:not(.about-person-role) {
+  color: #59697c;
+  line-height: 1.65;
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.about-person-card {
+  overflow: hidden;
+  padding: 0 0 24px;
+  border: 1px solid #e7ebf0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.about-person-image {
+  display: block;
+  width: 100%;
+  height: 240px;
+  margin: 0 0 20px;
+  border-radius: 13px 13px 0 0;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.about-person-card h3,
+.about-person-card .about-person-role,
+.about-person-card > p:not(.about-person-role),
+.about-person-card > a {
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.about-person-card h3 {
+  margin: 0 0 6px;
+  color: #142b4a;
+  font-size: 1.2rem;
+}
+
+.about-person-role {
+  margin: 0;
+  color: #1769aa;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.about-person-card a {
+  color: #1769aa;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.about-demo-note {
+  margin: 16px 0 0;
+  color: #64748b;
+  font-size: .82rem;
+  text-align: center;
+}
+
 .about-value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -286,6 +367,10 @@ img{
   }
 
   .about-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-team-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -383,6 +468,15 @@ img{
   align-items: flex-start;
   justify-content: center;
   background: #eaf3fb;
+}
+
+.contact-showroom-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .contact-note-icon {
